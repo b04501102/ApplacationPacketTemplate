@@ -1,0 +1,66 @@
+<template lang='pug'>
+  .activities.container
+    .title(:class='isLightMode ? "text-main-dark border-main-dark" : "text-main-light border-main-light"') 課外活動
+    .row
+      ContentCard.col-sm-6(v-for='activity, key in activities' :title='key' :content='activity.content' :images='activity.images')
+</template>
+
+<script>
+import ContentCard from '@/components/ContentCard.vue'
+import { mapState } from 'vuex'
+
+export default {
+  data: () => {
+    return {
+      activities: {
+        "Dolore est ea incididunt aliqua ex.1": {
+          content: "<span>Veniam exercitation quis nulla minim. Qui veniam magna laborum irure commodo. Proident excepteur culpa dolor labore dolore deserunt irure esse officia.Sit mollit est in ullamco duis incididunt irure. Laboris labore nisi ipsum sint. Irure velit laborum nostrud mollit reprehenderit dolore dolor ipsum cillum mollit non. Adipisicing elit pariatur duis mollit nisi nisi. Cillum mollit ipsum do exercitation voluptate sit anim pariatur in anim commodo laboris.Reprehenderit magna exercitation in reprehenderit anim ex culpa ipsum dolor. Sunt voluptate deserunt aute id cillum. Deserunt cupidatat aute pariatur qui sit sunt.Et adipisicing sint qui exercitation reprehenderit occaecat quis mollit nisi enim. Anim ad laborum reprehenderit sunt nisi eu ad officia nostrud ad reprehenderit. Laboris in fugiat aliquip est nulla tempor deserunt veniam labore ullamco ullamco. Proident elit sit enim do eiusmod officia sint proident. Amet qui proident quis officia velit.Aliquip tempor et officia aliqua qui mollit ipsum adipisicing labore enim veniam ut pariatur. Incididunt et eiusmod quis velit labore Lorem exercitation nisi Lorem adipisicing. Dolor nulla laboris aliquip id Lorem cupidatat proident quis laborum duis. Exercitation nulla exercitation sunt laborum. Voluptate eu consectetur id incididunt nostrud id. Id aliquip qui velit id reprehenderit proident aliquip occaecat proident in pariatur.Mollit commodo aliqua anim cillum amet exercitation magna incididunt incididunt ullamco ex. Amet adipisicing in est aute eu deserunt consectetur sunt Lorem. Duis reprehenderit ullamco dolor deserunt deserunt ut tempor eiusmod eiusmod velit cillum. Proident sint Lorem et adipisicing labore. Exercitation incididunt velit excepteur irure est tempor. Qui irure cupidatat tempor eu qui commodo eu aliqua dolore aliquip nostrud irure quis. Sint officia nostrud dolore amet cillum aute magna incididunt fugiat.</span>",
+          images: ["Courses/ICG/ICG_FinalProject.jpg", "Courses/ICG/ICG_FinalProject.jpg", "Courses/ICG/ICG_FinalProject.jpg"]
+        },
+        "Dolore est ea incididunt aliqua ex.2": {
+          content: "<span>Veniam exercitation quis nulla minim. Qui veniam magna laborum irure commodo. Proident excepteur culpa dolor labore dolore deserunt irure esse officia.Sit mollit est in ullamco duis incididunt irure. Laboris labore nisi ipsum sint. Irure velit laborum nostrud mollit reprehenderit dolore dolor ipsum cillum mollit non. Adipisicing elit pariatur duis mollit nisi nisi. Cillum mollit ipsum do exercitation voluptate sit anim pariatur in anim commodo laboris.Reprehenderit magna exercitation in reprehenderit anim ex culpa ipsum dolor. Sunt voluptate deserunt aute id cillum. Deserunt cupidatat aute pariatur qui sit sunt.Et adipisicing sint qui exercitation reprehenderit occaecat quis mollit nisi enim. Anim ad laborum reprehenderit sunt nisi eu ad officia nostrud ad reprehenderit. Laboris in fugiat aliquip est nulla tempor deserunt veniam labore ullamco ullamco. Proident elit sit enim do eiusmod officia sint proident. Amet qui proident quis officia velit.Aliquip tempor et officia aliqua qui mollit ipsum adipisicing labore enim veniam ut pariatur. Incididunt et eiusmod quis velit labore Lorem exercitation nisi Lorem adipisicing. Dolor nulla laboris aliquip id Lorem cupidatat proident quis laborum duis. Exercitation nulla exercitation sunt laborum. Voluptate eu consectetur id incididunt nostrud id. Id aliquip qui velit id reprehenderit proident aliquip occaecat proident in pariatur.Mollit commodo aliqua anim cillum amet exercitation magna incididunt incididunt ullamco ex. Amet adipisicing in est aute eu deserunt consectetur sunt Lorem. Duis reprehenderit ullamco dolor deserunt deserunt ut tempor eiusmod eiusmod velit cillum. Proident sint Lorem et adipisicing labore. Exercitation incididunt velit excepteur irure est tempor. Qui irure cupidatat tempor eu qui commodo eu aliqua dolore aliquip nostrud irure quis. Sint officia nostrud dolore amet cillum aute magna incididunt fugiat.</span>",
+          images: ["Courses/ICG/ICG_FinalProject.jpg"]
+        },
+        "Dolore est ea incididunt aliqua ex.3": {
+          content: "<span>Veniam exercitation quis nulla minim. Qui veniam magna laborum irure commodo. Proident excepteur culpa dolor labore dolore deserunt irure esse officia.Sit mollit est in ullamco duis incididunt irure. Laboris labore nisi ipsum sint. Irure velit laborum nostrud mollit reprehenderit dolore dolor ipsum cillum mollit non. Adipisicing elit pariatur duis mollit nisi nisi. Cillum mollit ipsum do exercitation voluptate sit anim pariatur in anim commodo laboris.Reprehenderit magna exercitation in reprehenderit anim ex culpa ipsum dolor. Sunt voluptate deserunt aute id cillum. Deserunt cupidatat aute pariatur qui sit sunt.Et adipisicing sint qui exercitation reprehenderit occaecat quis mollit nisi enim. Anim ad laborum reprehenderit sunt nisi eu ad officia nostrud ad reprehenderit. Laboris in fugiat aliquip est nulla tempor deserunt veniam labore ullamco ullamco. Proident elit sit enim do eiusmod officia sint proident. Amet qui proident quis officia velit.Aliquip tempor et officia aliqua qui mollit ipsum adipisicing labore enim veniam ut pariatur. Incididunt et eiusmod quis velit labore Lorem exercitation nisi Lorem adipisicing. Dolor nulla laboris aliquip id Lorem cupidatat proident quis laborum duis. Exercitation nulla exercitation sunt laborum. Voluptate eu consectetur id incididunt nostrud id. Id aliquip qui velit id reprehenderit proident aliquip occaecat proident in pariatur.Mollit commodo aliqua anim cillum amet exercitation magna incididunt incididunt ullamco ex. Amet adipisicing in est aute eu deserunt consectetur sunt Lorem. Duis reprehenderit ullamco dolor deserunt deserunt ut tempor eiusmod eiusmod velit cillum. Proident sint Lorem et adipisicing labore. Exercitation incididunt velit excepteur irure est tempor. Qui irure cupidatat tempor eu qui commodo eu aliqua dolore aliquip nostrud irure quis. Sint officia nostrud dolore amet cillum aute magna incididunt fugiat.</span>",
+          images: ["Courses/ICG/ICG_FinalProject.jpg", ],
+        },
+        "Dolore est ea incididunt aliqua ex.4": {
+          content: "<span>Veniam exercitation quis nulla minim. Qui veniam magna laborum irure commodo. Proident excepteur culpa dolor labore dolore deserunt irure esse officia.Sit mollit est in ullamco duis incididunt irure. Laboris labore nisi ipsum sint. Irure velit laborum nostrud mollit reprehenderit dolore dolor ipsum cillum mollit non. Adipisicing elit pariatur duis mollit nisi nisi. Cillum mollit ipsum do exercitation voluptate sit anim pariatur in anim commodo laboris.Reprehenderit magna exercitation in reprehenderit anim ex culpa ipsum dolor. Sunt voluptate deserunt aute id cillum. Deserunt cupidatat aute pariatur qui sit sunt.Et adipisicing sint qui exercitation reprehenderit occaecat quis mollit nisi enim. Anim ad laborum reprehenderit sunt nisi eu ad officia nostrud ad reprehenderit. Laboris in fugiat aliquip est nulla tempor deserunt veniam labore ullamco ullamco. Proident elit sit enim do eiusmod officia sint proident. Amet qui proident quis officia velit.Aliquip tempor et officia aliqua qui mollit ipsum adipisicing labore enim veniam ut pariatur. Incididunt et eiusmod quis velit labore Lorem exercitation nisi Lorem adipisicing. Dolor nulla laboris aliquip id Lorem cupidatat proident quis laborum duis. Exercitation nulla exercitation sunt laborum. Voluptate eu consectetur id incididunt nostrud id. Id aliquip qui velit id reprehenderit proident aliquip occaecat proident in pariatur.Mollit commodo aliqua anim cillum amet exercitation magna incididunt incididunt ullamco ex. Amet adipisicing in est aute eu deserunt consectetur sunt Lorem. Duis reprehenderit ullamco dolor deserunt deserunt ut tempor eiusmod eiusmod velit cillum. Proident sint Lorem et adipisicing labore. Exercitation incididunt velit excepteur irure est tempor. Qui irure cupidatat tempor eu qui commodo eu aliqua dolore aliquip nostrud irure quis. Sint officia nostrud dolore amet cillum aute magna incididunt fugiat.</span>",
+          images: ["Courses/ICG/ICG_FinalProject.jpg"]
+        },
+        "Dolore est ea incididunt aliqua ex.5": {
+          content: "<span>Veniam exercitation quis nulla minim. Qui veniam magna laborum irure commodo. Proident excepteur culpa dolor labore dolore deserunt irure esse officia.Sit mollit est in ullamco duis incididunt irure. Laboris labore nisi ipsum sint. Irure velit laborum nostrud mollit reprehenderit dolore dolor ipsum cillum mollit non. Adipisicing elit pariatur duis mollit nisi nisi. Cillum mollit ipsum do exercitation voluptate sit anim pariatur in anim commodo laboris.Reprehenderit magna exercitation in reprehenderit anim ex culpa ipsum dolor. Sunt voluptate deserunt aute id cillum. Deserunt cupidatat aute pariatur qui sit sunt.Et adipisicing sint qui exercitation reprehenderit occaecat quis mollit nisi enim. Anim ad laborum reprehenderit sunt nisi eu ad officia nostrud ad reprehenderit. Laboris in fugiat aliquip est nulla tempor deserunt veniam labore ullamco ullamco. Proident elit sit enim do eiusmod officia sint proident. Amet qui proident quis officia velit.Aliquip tempor et officia aliqua qui mollit ipsum adipisicing labore enim veniam ut pariatur. Incididunt et eiusmod quis velit labore Lorem exercitation nisi Lorem adipisicing. Dolor nulla laboris aliquip id Lorem cupidatat proident quis laborum duis. Exercitation nulla exercitation sunt laborum. Voluptate eu consectetur id incididunt nostrud id. Id aliquip qui velit id reprehenderit proident aliquip occaecat proident in pariatur.Mollit commodo aliqua anim cillum amet exercitation magna incididunt incididunt ullamco ex. Amet adipisicing in est aute eu deserunt consectetur sunt Lorem. Duis reprehenderit ullamco dolor deserunt deserunt ut tempor eiusmod eiusmod velit cillum. Proident sint Lorem et adipisicing labore. Exercitation incididunt velit excepteur irure est tempor. Qui irure cupidatat tempor eu qui commodo eu aliqua dolore aliquip nostrud irure quis. Sint officia nostrud dolore amet cillum aute magna incididunt fugiat.</span>",
+          images: []
+        },
+        "Dolore est ea incididunt aliqua ex.6": {
+          content: "<span>Veniam exercitation quis nulla minim. Qui veniam magna laborum irure commodo. Proident excepteur culpa dolor labore dolore deserunt irure esse officia.Sit mollit est in ullamco duis incididunt irure. Laboris labore nisi ipsum sint. Irure velit laborum nostrud mollit reprehenderit dolore dolor ipsum cillum mollit non. Adipisicing elit pariatur duis mollit nisi nisi. Cillum mollit ipsum do exercitation voluptate sit anim pariatur in anim commodo laboris.Reprehenderit magna exercitation in reprehenderit anim ex culpa ipsum dolor. Sunt voluptate deserunt aute id cillum. Deserunt cupidatat aute pariatur qui sit sunt.Et adipisicing sint qui exercitation reprehenderit occaecat quis mollit nisi enim. Anim ad laborum reprehenderit sunt nisi eu ad officia nostrud ad reprehenderit. Laboris in fugiat aliquip est nulla tempor deserunt veniam labore ullamco ullamco. Proident elit sit enim do eiusmod officia sint proident. Amet qui proident quis officia velit.Aliquip tempor et officia aliqua qui mollit ipsum adipisicing labore enim veniam ut pariatur. Incididunt et eiusmod quis velit labore Lorem exercitation nisi Lorem adipisicing. Dolor nulla laboris aliquip id Lorem cupidatat proident quis laborum duis. Exercitation nulla exercitation sunt laborum. Voluptate eu consectetur id incididunt nostrud id. Id aliquip qui velit id reprehenderit proident aliquip occaecat proident in pariatur.Mollit commodo aliqua anim cillum amet exercitation magna incididunt incididunt ullamco ex. Amet adipisicing in est aute eu deserunt consectetur sunt Lorem. Duis reprehenderit ullamco dolor deserunt deserunt ut tempor eiusmod eiusmod velit cillum. Proident sint Lorem et adipisicing labore. Exercitation incididunt velit excepteur irure est tempor. Qui irure cupidatat tempor eu qui commodo eu aliqua dolore aliquip nostrud irure quis. Sint officia nostrud dolore amet cillum aute magna incididunt fugiat.</span>",
+          images: ["Courses/ICG/ICG_FinalProject.jpg"]
+        },
+      },
+    }
+  },
+  computed: {
+    ...mapState(['isLightMode'])
+  },
+  components: {
+    ContentCard,
+  }
+}
+</script>
+
+<style lang='sass'>
+  .activities
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+  .activities > .title
+    font-size: 20px
+    font-weight: 900
+    padding: 5px
+    display: inline-block
+    border-top: 2px solid #444
+    border-bottom: 2px solid #444
+    margin: 20px 0px
+</style>
